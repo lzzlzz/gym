@@ -1,0 +1,194 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>详情页 Coach/content</title>
+<meta name="description" content="这是一个 index 页面">
+<meta name="keywords" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="icon" type="image/png" href="__admin__/assets/i/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="__admin__/assets/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<link rel="stylesheet" href="__admin__/assets/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__admin__/assets/css/admin.css">
+<script src="__admin__/assets/js/jquery.min.js"></script>
+<script src="__admin__/assets/js/app.js"></script>
+</head>
+
+<body>
+<!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
+
+
+
+
+
+
+</head>
+
+<body>
+{include file="Common/header"/}
+{include file="Common/left"/}
+    
+    
+    
+    
+    
+    
+
+
+<div class=" admin-content">
+	
+		<div class="daohang">
+			<ul>
+				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页 </li>
+				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+				
+				
+			</ul>
+
+       
+
+	
+</div>
+	
+	
+
+
+<div class="admin-biaogelist">
+	
+    <div class="listbiaoti am-cf">
+      <ul class="am-icon-flag on"> 教练详情</ul>
+      
+      <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">商品列表</a></dl>
+
+      
+      
+    </div>
+	
+    <div class="fbneirong">
+      <form class="am-form" action="" method="POST" enctype="multipart/form-data">
+        <div class="am-form-group am-cf">
+          <div class="zuo ">教练姓名：</div>
+          <div class="you" style="width:200px;">
+            <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入教练姓名" name="co_name" value="{$content.co_name}">
+          </div>
+        </div>
+        <div class="am-form-group am-cf">
+          <div class="zuo">性别：</div>
+          <div class="you" style="width:200px;">
+            <!-- <select class="am-input-sm" name="co_sex" value="{$content.co_sex}">
+              <option>男</option>
+              <option>女</option>
+            </select> -->
+              <input type="text" class="am-input-sm" value="{$content.co_sex}"/>
+            
+          </div>
+        </div>
+        <div class="am-form-group am-cf">
+          <div class="zuo">身份证号：</div>
+          <div class="you" style="width:200px;">
+            <input type="text" class="am-input-sm" name="co_id" value="{$content.co_id}"/>
+          </div>
+        </div>
+        <div class="am-form-group am-cf">
+          <div class="zuo">电话号码：</div>
+          <div class="you" style="width:200px;">
+            <input type="text" class="am-input-sm" name="co_phone" value="{$content.co_phone}"/>
+          </div>
+        </div>
+        <div class="am-form-group am-cf">
+          <div class="zuo">教练照片：</div>
+          <div class="you">
+            {if condition="$content['co_pic'] neq null"}
+                        <img src="__uploads__/{$content.co_pic}" width="200px" height="200px"/>
+            {else/}
+                        <span class="am-input-sm">暂无图片</span>
+            {/if}
+          </div>
+        </div>
+        
+        <div class="am-form-group am-cf">
+          <div class="zuo">联系地址：</div>
+          <div class="you">
+            <textarea class="am-input-sm" rows="2" id="doc-ta-1" name="co_address">{$content.co_address}</textarea>
+          </div>
+        </div>
+        
+        <div class="am-form-group am-cf">
+          <div class="zuo">审核结果：</div>
+          <div class="you"style="width:200px;">
+           <!--  <select name="co_type">
+              <option>次卡教练</option>
+              <option>普通教练</option>
+            </select> -->
+{if condition="$content['co_qualify'] eq 0"}
+     <input class="am-input-sm" type="text" value=" 待审核 " />
+{elseif condition="$content['co_qualify'] eq 1"}
+      <input class="am-input-sm" type="text" value=" 不合格" />
+{else/} 
+      <input class="am-input-sm" type="text" value="合格 " />
+{/if}
+           
+          </div>
+        </div>
+        
+         <div class="am-form-group am-cf">
+          <div class="zuo">教练类型：</div>
+          <div class="you" style="width:200px;">
+            <input type="text" class="am-input-sm" name="co_course" value="{$content.co_course}"/>
+          </div>
+        </div>
+        
+        
+        <div class="am-form-group am-cf">
+          <div class="you" style="margin-left: 11%;">
+              <a href="{:url('lst')}" type="submit" class="am-btn am-btn-success am-radius">返回</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  
+ 
+ <div class="foods">
+  <ul>
+    版权所有@2015
+  </ul>
+  <dl>
+    <a href="" title="返回头部" class="am-icon-btn am-icon-arrow-up"></a>
+  </dl>
+</div>
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__admin__/assets/js/polyfill/rem.min.js"></script>
+<script src="__admin__/assets/js/polyfill/respond.min.js"></script>
+<script src="__admin__/assets/js/amazeui.legacy.js"></script>
+<![endif]--> 
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="__admin__/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+
+
+
+</body>
+</html>

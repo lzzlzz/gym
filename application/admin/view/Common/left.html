@@ -1,0 +1,69 @@
+
+<div class="am-cf admin-main"> 
+
+<div class="nav-navicon admin-main admin-sidebar">
+    
+    
+    <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：乔琳</div>
+    <div class="sideMenu">
+      <h3 class="am-icon-flag"><em></em> <a href="{:url('Member/lst')}">会员管理</a></h3>
+      <ul>
+        <li><a href="{:url('Member/lst')}">会员列表</a></li>
+        <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="{:url('Member/add')}">会员新增</a></li>
+        <!-- <li>健身卡充值</li> -->
+        <!-- <li>用户评论</li>
+        <li>商品回收站</li>
+        <li>库存管理 </li> -->
+      </ul>
+      <h3 class="am-icon-cart-plus"><em></em> <a href="{:url('Coach/lst')}"> 教练管理</a></h3>
+      <ul>
+       <li><a href="{:url('Coach/lst')}">教练列表</a></li>
+        <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="{:url('Coach/add')}">教练新增</a></li>
+       <!--  <li>订单打印</li>
+        <li>添加订单</li>
+        <li>发货单列表</li>
+        <li>换货单列表</li> -->
+      </ul>
+      <h3 class="am-icon-users"><em></em> <a href="{:url('Course/lst')}">课程管理</a></h3>
+      <ul>
+        <li><a href="{:url('Cate/lst')}">课程类别管理</a> </li>
+        <li><a href="{:url('Course/lst')}">课程列表</a> </li>
+        <li><a href="{:url('Course/add')}">课程新增</a> </li>
+        
+      </ul>
+      <h3 class="am-icon-volume-up"><em></em> <a href="#">信息通知</a></h3>
+      <ul>
+        <li>站内消息 /留言 </li>
+        <li>短信</li>
+        <li>邮件</li>
+        <li>微信</li>
+        <li>客服</li>
+      </ul>
+      <h3 class="am-icon-gears"><em></em> <a href="#">系统设置</a></h3>
+      <ul>
+        <li>数据备份</li>
+        <li>邮件/短信管理</li>
+        <li>上传/下载</li>
+        <li>权限</li>
+        <li>网站设置</li>
+        <li>第三方支付</li>
+        <li>提现 /转账 出入账汇率</li>
+        <li>平台设置</li>
+        <li>声音文件</li>
+      </ul>
+    </div>
+    <!-- sideMenu End --> 
+    
+    <script type="text/javascript">
+			jQuery(".sideMenu").slide({
+				titCell:"h3", //鼠标触发对象
+				targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+				effect:"slideDown", //targetCell下拉效果
+				delayTime:300 , //效果时间
+				triggerTime:150, //鼠标延迟触发时间（默认150）
+				defaultPlay:true,//默认是否执行效果（默认true）
+				returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+				});
+		</script> 
+
+    
