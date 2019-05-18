@@ -67,6 +67,7 @@
       <!--这里打开的是新页面-->  
     </div>
     <form class="am-form am-g">
+
           <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
             <thead>
               <tr class="am-success">
@@ -82,10 +83,10 @@
 
 {volist name="courses" id="vo"}
               <tr>
-                
+                <input type="hidden" class="kclevel" value="{$vo.kc_level}">
                 <td>{$vo.kc_num}</td>
                 <td>{$vo.kc_title}</td>
-                <td>{$vo.kc_level}</td>
+                <td class="opt"></td>
                 <td>{$vo.cateId}</td>
                 <td>{$vo.kc_content}</td>
                 <td>
@@ -152,7 +153,18 @@
 <!--[if (gte IE 9)|!(IE)]><!--> 
 <script src="__admin__/assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
+<script>
+ // var arr=$('.kclevel').val();
+ var arr=$('.kclevel');
+ var lvl=["小试牛刀","初入江湖","柳暗花明","独孤求败"];
+ for(var i=0;i<arr.size();i++){
+ var x=arr[i].value;
+  //console.log(arr[i].value);
+  $('.opt:eq('+i+')').html(lvl[x]);
 
+ }
+  
+</script>
 
 
 </body>

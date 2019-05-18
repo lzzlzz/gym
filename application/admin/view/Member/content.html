@@ -62,7 +62,7 @@
 <div class="admin-biaogelist">
 	
     <div class="listbiaoti am-cf">
-      <ul class="am-icon-flag on"> 用户详情</ul>
+      <ul class="am-icon-flag on"> 会员详情</ul>
       
       <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">商品列表</a></dl>
 
@@ -75,7 +75,7 @@
         <div class="am-form-group am-cf">
           <div class="zuo ">会员姓名：</div>
           <div class="you" style="width:200px;">
-            <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入用户姓名" name="mem_name" value="{$content.mem_name}">
+            <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入会员姓名" name="mem_name" value="{$content.mem_name}">
           </div>
         </div>
         <div class="am-form-group am-cf">
@@ -102,7 +102,7 @@
           </div>
         </div>
         <div class="am-form-group am-cf">
-          <div class="zuo">用户照片：</div>
+          <div class="zuo">会员照片：</div>
           <div class="you">
       {if condition="$content['mem_pic'] neq null"}
             <img src="__uploads__/{$content.mem_pic}" width="200px" height="200px"/>
@@ -120,13 +120,13 @@
         </div>
         
         <div class="am-form-group am-cf">
-          <div class="zuo">用户类型：</div>
+          <div class="zuo">会员类型：</div>
           <div class="you"style="width:200px;">
            <!--  <select name="mem_type">
-              <option>次卡用户</option>
-              <option>普通用户</option>
+              <option>次卡会员</option>
+              <option>普通会员</option>
             </select> -->
-            <input type="text" value="{$content.mem_type}" />
+            <input type="text" value="{$content.mem_type}会员" />
           </div>
         </div>
         

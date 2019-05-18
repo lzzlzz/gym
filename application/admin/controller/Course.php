@@ -25,9 +25,10 @@ class Course extends Controller
         return view();
     }
 
-   
+
    //课程列表
    public function lst(){
+   
    	$courses=db('course')->paginate(5);
    	$this->assign([
    		'courses'=>$courses,

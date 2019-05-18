@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Amaze UI Admin index Examples</title>
+<title>订单增加 Order/add</title>
 <meta name="description" content="这是一个 index 页面">
 <meta name="keywords" content="index">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -62,7 +62,7 @@
 <div class="admin-biaogelist">
 	
     <div class="listbiaoti am-cf">
-      <ul class="am-icon-flag on"> 会员增加</ul>
+      <ul class="am-icon-flag on"> 订单增加</ul>
       
       <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">商品列表</a></dl>
 
@@ -72,61 +72,75 @@
 	
     <div class="fbneirong">
       <form class="am-form" action="" method="POST" enctype="multipart/form-data">
+
+      
+      <div class="am-form-group am-cf">
+          <div class="zuo ">用户编号：</div>
+          <div class="you" style="width:200px;">
+           
+                        <select name="mem_num" class="am-input-sm">
+                          <!-- 获取后台传过来的会员类型 -->
+            {volist name="members" id="vo"}
+                          <option value="{$vo.mem_num}">{$vo.mem_num}&nbsp;&nbsp;{$vo.mem_name}</option>
+            {/volist}
+                        </select>
+          </div>
+        </div>
+
+       <div class="am-form-group am-cf">
+                 <div class="zuo">健身卡类型：</div>
+                 <div class="you" style="width:200px;">
+                   <select name="mem_type" class="am-input-sm" id="cardType">
+                     <!-- 获取后台传过来的会员类型 -->
+                     <option selected="selected" >选择健身卡类型</option>
+       {volist name="cardType" id="vo"}
+                     <option>{$vo}</option>
+       {/volist}
+                   </select>
+                 </div>
+               </div>
        
-        <div class="am-form-group am-cf">
-          <div class="zuo ">会员姓名：</div>
+      
+      
+
+         <div class="am-form-group am-cf cardType"  style="display: none">
+          <div class="zuo" >购买次数：</div>
           <div class="you" style="width:200px;">
-            <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入会员姓名" name="mem_name">
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买次数" name="cd_price">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">次</div>
           </div>
         </div>
-        <div class="am-form-group am-cf">
-          <div class="zuo">性别：</div>
+        <div class="am-form-group am-cf cardType"  style="display: none">
+          <div class="zuo" >购买月数：</div>
           <div class="you" style="width:200px;">
-            <select class="am-input-sm" name="mem_sex" >
-              <option>男</option>
-              <option>女</option>
-            </select>
-            
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买月数" name="cd_pr
+             ice">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">个月</div>
           </div>
         </div>
-        <div class="am-form-group am-cf">
-          <div class="zuo">身份证号：</div>
-          <div class="you"style="width:200px;">
-            <input type="text" name="mem_id"/>
-          </div>
-        </div>
-        <div class="am-form-group am-cf">
-          <div class="zuo">电话号码：</div>
+        <div class="am-form-group am-cf cardType"  style="display: none">
+          <div class="zuo" >购买年数：</div>
           <div class="you" style="width:200px;">
-            <input type="text" name="mem_phone"/>
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买年数" name="cd_price">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">年</div>
           </div>
         </div>
-        <div class="am-form-group am-cf">
-          <div class="zuo">会员照片：</div>
-          <div class="you">
-            <input type="file" id="doc-ipt-file-1" name="mem_pic">
+        <div class="am-form-group am-cf cardType"  style="display: none">
+          <div class="zuo" >购买课时数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入课时数" name="cd_price">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">课时</div>
           </div>
         </div>
-        
-        <div class="am-form-group am-cf">
-          <div class="zuo">联系地址：</div>
-          <div class="you">
-            <textarea class="" rows="2" id="doc-ta-1" name="mem_address"></textarea>
+
+       <!--   <div class="am-form-group am-cf">
+          <div class="zuo" >订单金额：</div>
+          <div class="you" style="width:150px;">
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入订单价格" name="cd_price">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">元</div>
           </div>
         </div>
-        
-        <div class="am-form-group am-cf">
-          <div class="zuo">会员类型：</div>
-          <div class="you">
-            <select name="mem_type">
-              <!-- 获取后台传过来的会员类型 -->
-{volist name="cardType" id="vo"}
-              <option>{$vo}会员</option>
-{/volist}
-            </select>
-          </div>
-        </div>
-        
+         -->
         
         
         <div class="am-form-group am-cf">
@@ -164,7 +178,20 @@
 <!--[if (gte IE 9)|!(IE)]><!--> 
 <script src="__admin__/assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
-
+ <script>
+   $('#cardType').change(function(){
+     var type=$('#cardType>option:selected').html();
+         var arr=['次卡','月卡','年卡','私教卡'];
+         for(var i=0;i<arr.length;i++){
+          if(arr[i]===type){
+            $('.cardType:eq('+i+')').css("display","block");
+          }else
+          $('.cardType:eq('+i+')').css("display","none");
+         }
+        
+   });
+         
+        </script>
 
 
 </body>
