@@ -74,8 +74,11 @@
                 <th class="table-id">课程编号</th>
                 <th class="table-title">课程名称</th>
                 <th class="table-type">难度等级</th>
-                <th class="table-type">课程类型</th>
+                <th class="table-type">课程分类</th>
+                <th class="table-type">课程性质</th>
+                <th class="table-author am-hide-sm-only">授课教练</th>
                 <th class="table-author am-hide-sm-only">课程内容</th>
+                
                 <th width="130px" class="table-set">操作</th>
               </tr>
             </thead>
@@ -87,15 +90,18 @@
                 <td>{$vo.kc_num}</td>
                 <td>{$vo.kc_title}</td>
                 <td class="opt"></td>
-                <td>{$vo.cateId}</td>
+                <td>{$cateTitle[$vo['cateId']]}</td>
+                <td>
+                {if condition="$vo['kc_type'] eq 0"}团课{else/}私教课{/if}</td>
+                <td>{$coachName[$vo['coach_id']]}</td>
                 <td>{$vo.kc_content}</td>
                 <td>
                    	
                 	<div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                      <a href="{:url('content',array('id'=>$vo['id']))}" class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看用户详情"></span> </a>
-                      <a href="{:url('edit',array('id'=>$vo['id']))}"class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改用户信息"><span class="am-icon-pencil-square-o"></span></a>
-                      <a href="{:url('del',array('id'=>$vo['id']))}" onClick="return confirm('确定删除?');"class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除用户"><span class="am-icon-trash-o" ></span></a>
+                     <!--  <a href="{:url('content',array('id'=>$vo['id']))}" class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看用户详情"></span> </a> -->
+                      <a href="{:url('edit',array('id'=>$vo['id']))}"class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改课程信息"><span class="am-icon-pencil-square-o"></span></a>
+                      <a href="{:url('del',array('id'=>$vo['id']))}" onClick="return confirm('确定删除?');"class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除课程"><span class="am-icon-trash-o" ></span></a>
                     </div>
                   </div>
               

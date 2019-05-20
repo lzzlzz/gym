@@ -130,9 +130,9 @@
         <div class="am-form-group am-cf">
           <div class="zuo">教练类型：</div>
           <div class="you">
-            <select name="co_course" class="am-input-sm">
+            <select name="cate_id" class="am-input-sm">
           {volist name="cateRes" id="vo"}
-              <option>{$vo.cate_name}教练</option>
+              <option value="{$vo.id}">{$vo.cate_name}教练</option>
           {/volist}
             </select>
           

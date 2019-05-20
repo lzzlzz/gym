@@ -1,13 +1,15 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
+use app\admin\model\Coach as CoachModel;
+use app\admin\model\Cate as CateModel;
 class Coach extends Controller
 {
 	//添加教练
     public function add()
     {
       //找到课程类别中的大类
-      $cateRes=db('cate')->where('pid',0)->field('cate_name')->select();
+      $cateRes=db('cate')->where('pid',0)->field(['id','cate_name'])->select();
       $this->assign([
         'cateRes'=>$cateRes,
       ]);
@@ -62,8 +64,16 @@ class Coach extends Controller
    //教练详情页
    public function content($id){
     $content=db('coach')->find($id);
+    // $coachs=new CoachModel();
+    // $coachs->getCateNumById
+   // $list = CoachModel::hasWhere('Cate',['id'=>1])->select();//找到了从表中 主表 id=1 对应的所有教练
+   // 找从表中 cate_id=1这个类的类名
+  //  $cateRes=CateModel::hasWhere('Coach',['cate_id'=>$content['cate_id']])->select();//从CateModel 的id中找  与Coach中 cate_id 相等的值
+     $cateRes=CateModel::where('id','=',$content['cate_id'])->select();//这里直接就是从cate表中找id 等于 cate_id 的那个记录就可以
+   // dump($cateRes);die();
     $this->assign([
     	'content' => $content,
+      'cateRes'=>$cateRes[0],
     ]);
    	return view();
    }

@@ -1,0 +1,337 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>订单详情 Order/content</title>
+<meta name="description" content="这是一个 index 页面">
+<meta name="keywords" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="icon" type="image/png" href="__admin__/assets/i/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="__admin__/assets/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<link rel="stylesheet" href="__admin__/assets/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__admin__/assets/css/admin.css">
+<script src="__admin__/assets/js/jquery.min.js"></script>
+<script src="__admin__/assets/js/app.js"></script>
+</head>
+
+<body>
+<!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
+
+
+
+
+
+
+</head>
+
+<body>
+{include file="Common/header"/}
+{include file="Common/left"/}
+    
+    
+    
+    
+    
+    
+
+
+<div class=" admin-content">
+	
+		<div class="daohang">
+			<ul>
+				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页 </li>
+				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+				
+				
+			</ul>
+
+       
+
+	
+</div>
+	
+	
+
+
+<div class="admin-biaogelist">
+	
+    <div class="listbiaoti am-cf">
+      <ul class="am-icon-flag on"> 订单详情</ul>
+      
+      <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">商品列表</a></dl>
+
+      
+      
+    </div>
+	
+    <div class="fbneirong">
+      <form class="am-form" action="" method="POST" enctype="multipart/form-data">
+
+ <div class="am-form-group am-cf">
+          <div class="zuo ">订单编号：</div>
+          <div class="you" style="width:200px;">
+            <input type="text" class="am-input-sm" id="doc-ipt-email-1" name="order_times" value="{$orderRes.order_num}">
+          </div>
+        </div>
+      
+     
+
+       <div class="am-form-group am-cf">
+                 <div class="zuo">健身卡类型：</div>
+                 <div class="you" style="width:200px;">
+                  <input type="text" class="am-input-sm" id="cardType" name="order_times" value="{$orderRes.card_type}" >
+                 </div>
+               </div>
+       
+      
+      
+
+<div class="am-form-group am-cf cardType"  style="display: none">
+          <div class="am-form-group am-cf ">
+          <div class="zuo" >购买次数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="order_times" name="order_times" >
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">次</div>
+          </div>
+        </div>
+        <div class="am-form-group am-cf ">
+          <div class="zuo" >消费次数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="order_use" >
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">次</div>
+          </div>
+        </div>
+
+        <div class="am-form-group am-cf ">
+          <div class="zuo" >剩余消费次数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="order_bala" placeholder="请输入购买次数" name="order_times" >
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">次</div>
+          </div>
+        </div>
+
+</div>
+
+
+
+
+<div class="am-form-group am-cf cardType"  style="display: none">
+
+
+      <div class="am-form-group am-cf ">
+          <div class="zuo" >购买月数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="order_months" placeholder="请输入购买月数" name="order_months">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">个月</div>
+          </div>
+      </div>
+
+      <div class="am-form-group am-cf ">
+            <div class="zuo" >到期时间：</div>
+            <div class="you" style="width:200px;">
+               <input type="text" class="am-input-sm" id="order_deadline" >
+               <div style="float: right;margin-top: -28px;margin-right: 10px;"></div>
+            </div>
+      </div>
+
+      <div class="am-form-group am-cf ">
+            <div class="zuo" >剩余天数：</div>
+            <div class="you" style="width:200px;">
+               <input type="text" class="am-input-sm" id="order_month_day" >
+               <div style="float: right;margin-top: -28px;margin-right: 10px;">天</div>
+            </div>
+      </div>
+
+
+</div>
+
+
+
+<div class="am-form-group am-cf cardType"  style="display: none">
+
+      <div class="am-form-group am-cf ">
+          <div class="zuo" >购买年数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="order_years" placeholder="请输入购买年数" name="order_years">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">年</div>
+          </div>
+      </div>
+
+      <div class="am-form-group am-cf ">
+            <div class="zuo" >到期时间：</div>
+            <div class="you" style="width:200px;">
+               <input type="text" class="am-input-sm" id="order_year_deadline" >
+               <div style="float: right;margin-top: -28px;margin-right: 10px;"></div>
+            </div>
+      </div>
+
+      <div class="am-form-group am-cf ">
+            <div class="zuo" >剩余天数：</div>
+            <div class="you" style="width:200px;">
+               <input type="text" class="am-input-sm" id="order_year_day" >
+               <div style="float: right;margin-top: -28px;margin-right: 10px;">天</div>
+            </div>
+      </div>
+
+  </div>
+
+
+
+<div class="am-form-group am-cf cardType"  style="display: none">
+      <div class="am-form-group am-cf ">
+          <div class="zuo" >购买的课程：</div>
+          <div class="you" style="width:200px;">
+            <input type="text" class="am-input-sm" id="order_course" placeholder="请输入课时数" >  
+          </div>
+      </div>
+
+      <div class="am-form-group am-cf ">
+          <div class="zuo" >购买课时数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="order_lessons" placeholder="请输入课时数" name="order_lessons">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">课时</div>
+          </div>
+      </div>
+      <div class="am-form-group am-cf ">
+          <div class="zuo" >消费课时数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="order_used" placeholder="请输入课时数" name="order_used">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">课时</div>
+          </div>
+      </div>
+        <div class="am-form-group am-cf ">
+          <div class="zuo" >剩余课时数：</div>
+          <div class="you" style="width:200px;">
+             <input type="text" class="am-input-sm" id="order_bala_lessons" placeholder="请输入购买次数" name="order_bala_lessons" >
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">次</div>
+          </div>
+        </div>
+      </div>
+
+       <!--   <div class="am-form-group am-cf">
+          <div class="zuo" >订单金额：</div>
+          <div class="you" style="width:150px;">
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入订单价格" name="cd_price">
+             <div style="float: right;margin-top: -28px;margin-right: 10px;">元</div>
+          </div>
+        </div>
+         -->
+        
+        
+        <div class="am-form-group am-cf">
+          <div class="you" style="margin-left: 11%;">
+              <a type="submit" href="{:url('lst')}" class="am-btn am-btn-success am-radius">返回</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  
+ 
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__admin__/assets/js/polyfill/rem.min.js"></script>
+<script src="__admin__/assets/js/polyfill/respond.min.js"></script>
+<script src="__admin__/assets/js/amazeui.legacy.js"></script>
+<![endif]--> 
+
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="__admin__/assets/js/amazeui.min.js"></script>
+<script src="__admin__/assets/js/myself.js"></script>
+<!--<![endif]-->
+ <script>
+
+
+  /**在控制器中把数据转换为json格式 然后直接就可以在js代码中接收 
+    *然后再用js操作DOM节点进行数据放置
+    *
+    *这样做主要是因为达到一个不同类型的订单其订单详情不同的效果
+    *页面中的数据有一部分是来自公共订单表 另一部分的数据是根据类型的不同分别
+    *从对应类型的表中获取的数据 这段js代码就是用来处理这一部分数据的 因为
+    *没法像公共部分的数据一样直接用php的语句进行放置 因为用php的话 会出现
+    *当现实月卡数据的时候 被隐藏的次卡字段获取不到数据会报错
+    *所以采用了js安排数值的方法 
+    *第一步 后台根据订单类型 访问对应表获取对应类型的数据 然后转换成json格式
+    *第二步 js 可以直接处理后台传来的json格式的数据 根据数据中的类型判断应该
+    *      将这个数据安排在哪一段代码中 
+    *    
+    *第三部 将对应类型的代码展示 其余没赋值的也就是不需要的隐藏
+    *
+    **/
+  var order=[];
+  order={$data};
+
+  console.log(order);
+         var type=$('#cardType').val();
+    // alert(type);
+         var arr=['次卡','月卡','年卡','私教卡'];
+         if(type===arr[0]){
+          $('#order_times').val(order.order_times);
+          $('#order_use').val(order.order_use);
+          var bala=order.order_times-order.order_use;
+          $('#order_bala').val(bala);
+         }else if(type===arr[1]){
+          $('#order_months').val(order.order_months);
+         var deadline=getLocalTime(order.order_deadline);
+         var currentTime=getLocalTime(order.current_time);
+         var dayBala=intervalTime(currentTime.substr(0,10),deadline.substr(0,10));
+          $('#order_deadline').val(deadline);
+          $('#order_month_day').val(dayBala);
+
+         }else if(type===arr[2]){
+          $('#order_years').val(order.order_years);
+         var deadline=getLocalTime(order.order_deadline);
+         var currentTime=getLocalTime(order.current_time);
+         var dayBala=intervalTime(currentTime.substr(0,10),deadline.substr(0,10));
+          $('#order_year_deadline').val(deadline);
+          $('#order_year_day').val(dayBala);
+
+         }else if(type===arr[3]){
+          $('#order_course').val(order.order_course);
+          $('#order_lessons').val(order.order_lessons);
+          $('#order_used').val(order.order_used);
+          $('#order_bala_lessons').val(order.order_bala);
+
+         }
+
+
+         for(var i=0;i<arr.length;i++){
+          if(arr[i]===type){
+            $('.cardType:eq('+i+')').css("display","block");
+          }else
+          $('.cardType:eq('+i+')').css("display","none");
+         }
+        
+  
+        
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

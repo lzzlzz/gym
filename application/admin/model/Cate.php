@@ -6,7 +6,9 @@ class Cate extends Model
     //过滤前台发过来的多于字段
     protected $field=true;
 
-
+    public function coach(){
+        return $this->hasMany('Coach','cate_id','id');
+    }
     // 无限极栏目
     public function cateTree(){
         $data=$this->order('id desc')->select();

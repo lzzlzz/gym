@@ -78,12 +78,12 @@
                 所属类别：
               </div>
               <div class="you" style="width:200px;">
-                <select name='cateId'  class="am-input-sm">
-
+                <select name='cateId'  class="am-input-sm" id="cateType">
+<option selected="selected" disabled="disabled">请选择课程类别</option>
 
                 <!--   <option value="0">顶级栏目</option> -->
-                  {volist name="courseRes" id="course"}
-                  <option value="{$course.id}" ><?php echo str_repeat('-',$course['level']*4);?>{$course.cate_name}</option>
+                  {volist name="cateRes" id="cate"}
+                  <option value="{$cate.id}" pid="{$cate.pid}" {if condition="in_array($cate['id'],$pids)"}disabled="disabled"{/if}><?php echo str_repeat('-',$cate['level']*4);?>{$cate.cate_name}</option>
                   {/volist}
                 
                 </select>
@@ -115,6 +115,18 @@
               <option value="1">初入江湖</option>
               <option value="2">柳暗花明</option>
               <option value="3">独孤求败</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="am-form-group am-cf">
+          <div class="zuo">任课教练：</div>
+          <div class="you">
+            <select name="coach_id"  class="am-input-sm" id="coachType">
+              <option selected="selected" disabled="disabled" cateId='0'>请选择教练</option>
+      {volist name="coachRes" id="vo"}
+              <option  value="{$vo.id}" cateId="{$vo.cate_id}" >{$vo.co_num}&nbsp;{$vo.co_name}</option>
+      {/volist}      
             </select>
           </div>
         </div>
@@ -165,8 +177,8 @@
 
 <!--[if (gte IE 9)|!(IE)]><!--> 
 <script src="__admin__/assets/js/amazeui.min.js"></script>
+<script src="__admin__/assets/js/myself.js"></script>
 <!--<![endif]-->
-
 
 
 </body>

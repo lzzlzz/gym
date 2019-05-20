@@ -78,10 +78,10 @@
           <div class="zuo ">用户编号：</div>
           <div class="you" style="width:200px;">
            
-                        <select name="mem_num" class="am-input-sm">
+                        <select name="mem_id" class="am-input-sm">
                           <!-- 获取后台传过来的会员类型 -->
             {volist name="members" id="vo"}
-                          <option value="{$vo.mem_num}">{$vo.mem_num}&nbsp;&nbsp;{$vo.mem_name}</option>
+                          <option value="{$vo.id}">{$vo.mem_num}&nbsp;&nbsp;{$vo.mem_name}</option>
             {/volist}
                         </select>
           </div>
@@ -90,9 +90,9 @@
        <div class="am-form-group am-cf">
                  <div class="zuo">健身卡类型：</div>
                  <div class="you" style="width:200px;">
-                   <select name="mem_type" class="am-input-sm" id="cardType">
+                   <select name="card_type" class="am-input-sm" id="cardType">
                      <!-- 获取后台传过来的会员类型 -->
-                     <option selected="selected" >选择健身卡类型</option>
+                     <option selected="selected" disabled="disabled" >选择健身卡类型</option>
        {volist name="cardType" id="vo"}
                      <option>{$vo}</option>
        {/volist}
@@ -106,32 +106,46 @@
          <div class="am-form-group am-cf cardType"  style="display: none">
           <div class="zuo" >购买次数：</div>
           <div class="you" style="width:200px;">
-             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买次数" name="cd_price">
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买次数" name="order_times">
              <div style="float: right;margin-top: -28px;margin-right: 10px;">次</div>
           </div>
         </div>
         <div class="am-form-group am-cf cardType"  style="display: none">
           <div class="zuo" >购买月数：</div>
           <div class="you" style="width:200px;">
-             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买月数" name="cd_pr
-             ice">
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买月数" name="order_months">
              <div style="float: right;margin-top: -28px;margin-right: 10px;">个月</div>
           </div>
         </div>
         <div class="am-form-group am-cf cardType"  style="display: none">
           <div class="zuo" >购买年数：</div>
           <div class="you" style="width:200px;">
-             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买年数" name="cd_price">
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入购买年数" name="order_years">
              <div style="float: right;margin-top: -28px;margin-right: 10px;">年</div>
           </div>
         </div>
         <div class="am-form-group am-cf cardType"  style="display: none">
+           <div class="am-form-group am-cf cardType">
+          <div class="zuo" >购买的课程：</div>
+          <div class="you" style="width:200px;">
+
+  <select name="course_id" class="am-input-sm" id="cardType">
+                                <!-- 获取后台传过来的会员类型 -->
+      <option selected="selected" disabled="disabled" >选择课程</option>
+                  {volist name="courses" id="vo"}
+                                <option value="{$vo.id}">{$vo.kc_title}</option>
+                  {/volist}
+                              </select>
+          </div>
+        </div>
+         <div class="am-form-group am-cf cardType">
           <div class="zuo" >购买课时数：</div>
           <div class="you" style="width:200px;">
-             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入课时数" name="cd_price">
+             <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入课时数" name="order_lessons">
              <div style="float: right;margin-top: -28px;margin-right: 10px;">课时</div>
           </div>
         </div>
+      </div>
 
        <!--   <div class="am-form-group am-cf">
           <div class="zuo" >订单金额：</div>

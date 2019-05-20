@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>健身卡管理 Card/lst</title>
+<title>订单管理 Order/lst</title>
 <meta name="description" content="这是一个 index 页面">
 <meta name="keywords" content="index">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -57,12 +57,12 @@
 <div class="admin-biaogelist">
 	
     <div class="listbiaoti am-cf">
-      <ul class="am-icon-users"> 健身卡管理</ul>
+      <ul class="am-icon-users"> 订单管理</ul>
       
-      <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">健身卡列表</a></dl>
+      <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">订单列表</a></dl>
       
       <dl>
-        <a href="{:url('add')}"type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" > 添加新健身卡</a>
+        <a href="{:url('add')}"type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus" > 添加新订单</a>
       </dl>
       <!--这里打开的是新页面-->  
     </div>
@@ -71,30 +71,30 @@
           <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
             <thead>
               <tr class="am-success">
-                <th class="table-id">健身卡编号</th>
-                <th class="table-title">健身卡名称</th>
-                <th class="table-type">价格</th>
-                <th class="table-type">计费方式</th>
-                <th class="table-author am-hide-sm-only">健身卡描述</th>
+                <th class="table-id">订单编号</th>
+                <th class="table-title">会员编号</th>
+                <th class="table-type">会员姓名</th>
+                <th class="table-type">订单类型</th>
+                <th class="table-author am-hide-sm-only">下单时间</th>
                 <th width="130px" class="table-set">操作</th>
               </tr>
             </thead>
             <tbody>
 
-{volist name="cards" id="vo"}
+{volist name="orders" id="vo"}
               <tr>
-                <input type="hidden" class="cdType" value="{$vo.cd_type}">
-                <td>{$vo.cd_num}</td>
-                <td>{$vo.cd_name}</td>
-                <td>{$vo.cd_price}</td>
-                <td class="opt"></td>
-                <td>{$vo.cd_desc}</td>
+             
+                <td>{$vo.order_num}</td>
+                <td>{$memArr[$vo['mem_id']][0]}</td>
+                <td>{$memArr[$vo['mem_id']][1]}</td>
+                <td >{$vo.card_type}</td>
+                <td>{$vo.order_time|date="Y年m月d日-H:i:s",###}</td>
                 <td>
                    	
                 	<div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                     <!--  <a href="{:url('content',array('id'=>$vo['id']))}" class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看用户详情"></span> </a> -->
-                      <a href="{:url('edit',array('id'=>$vo['id']))}"class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改健身卡信息"><span class="am-icon-pencil-square-o"></span></a>
+                      <a href="{:url('content',['id'=>$vo['id'],'type'=>$vo['card_type']])}" class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看订单详情"></span> </a>
+                      <a href="{:url('edit',array('id'=>$vo['id']))}"class="am-btn am-btn-default am-btn-xs am-text-secondary am-round" data-am-modal="{target: '#my-popups'}" title="修改订单信息"><span class="am-icon-pencil-square-o"></span></a>
                       <a href="{:url('del',array('id'=>$vo['id']))}" onClick="return confirm('确定删除?');"class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除用户"><span class="am-icon-trash-o" ></span></a>
                     </div>
                   </div>
@@ -120,7 +120,7 @@
           
         
           
-          {$cards->render()}
+          {$orders->render()}
           
       
         </form>
@@ -155,14 +155,14 @@
 <!--<![endif]-->
 <script>
  // var arr=$('.kclevel').val();
- var arr=$('.cdType');
+ /*var arr=$('.cdType');
  var lvl=["次","天","课时"];
  for(var i=0;i<arr.size();i++){
  var x=arr[i].value;
   //console.log(arr[i].value);
   $('.opt:eq('+i+')').html(lvl[x]);
 
- }
+ }*/
   
 </script>
 

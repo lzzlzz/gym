@@ -75,15 +75,15 @@
       <input type="hidden" name="id" value="{$content.id}">
        <div class="am-form-group am-cf">
               <div class="zuo">
-                所属类别：
+                课程分类：
               </div>
               <div class="you" style="width:200px;">
-                <select name='cateId'  class="am-input-sm">
-
+                <select name='cateId'  class="am-input-sm" id="cateType">
+                <option selected="selected" disabled="disabled">请选择课程类别</option>
 
                 <!--   <option value="0">顶级栏目</option> -->
-                  {volist name="courseRes" id="course"}
-                  <option value="{$course.id}"{if condition="$course['id'] eq $content['cateId']"}selected="selected"{/if} ><?php echo str_repeat('-',$course['level']*4);?>{$course.cate_name}</option>
+                  {volist name="cateRes" id="cate"}
+                  <option value="{$cate.id}" pid="{$cate.pid}" {if condition="in_array($cate['id'],$pids)"}disabled="disabled"{/if}><?php echo str_repeat('-',$cate['level']*4);?>{$cate.cate_name}</option>
                   {/volist}
                 
                 </select>
@@ -98,12 +98,7 @@
           </div>
         </div>
 
-       <div class="am-form-group am-cf">
-          <div class="zuo">课程内容：</div>
-          <div class="you">
-            <textarea class="" rows="2" class="am-input-sm" id="doc-ta-1" name="kc_content" placeholder="请输入课程内容" value="{$content.kc_content}"></textarea>
-          </div>
-        </div>
+     
         
    
         
@@ -120,16 +115,38 @@
           </div>
         </div>
 
-         <div class="am-form-group am-cf">
-          <div class="zuo">课程类型：</div>
+       
+
+
+        <div class="am-form-group am-cf">
+          <div class="zuo">课程性质：</div>
           <div class="you">
             <select name="kc_type"  class="am-input-sm" >
-              <option value="0">团课</option>
-              <option value="1">私教课</option>
+              <option value="0"{if condition="$content['kc_type'] eq 0"}selected="selected"{/if}>团课</option>
+              <option value="1"{if condition="$content['kc_type'] eq 1"}selected="selected"{/if}>私教课</option>
             </select>
           </div>
         </div>
-        
+
+        <div class="am-form-group am-cf">
+                 <div class="zuo">任课教练：</div>
+                 <div class="you">
+                   <select name="coach_id"  class="am-input-sm" id="coachType">
+                     <option selected="selected" disabled="disabled" cateId='0'>请选择教练</option>
+             {volist name="coachRes" id="vo"}
+                     <option  value="{$vo.id}" cateId="{$vo.cate_id}" >{$vo.co_num}&nbsp;{$vo.co_name}</option>
+             {/volist}      
+                   </select>
+                 </div>
+               </div>
+
+
+        <div class="am-form-group am-cf">
+           <div class="zuo">课程内容：</div>
+           <div class="you">
+             <textarea class="" rows="2" class="am-input-sm" id="doc-ta-1" name="kc_content" placeholder="请输入课程内容" value="{$content.kc_content}"></textarea>
+           </div>
+         </div>
         
         
         <div class="am-form-group am-cf">
@@ -166,6 +183,7 @@
 
 <!--[if (gte IE 9)|!(IE)]><!--> 
 <script src="__admin__/assets/js/amazeui.min.js"></script>
+<script src="__admin__/assets/js/optionSelected.js"></script>
 <!--<![endif]-->
 
   <script>
