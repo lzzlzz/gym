@@ -31,7 +31,7 @@ class Member extends Controller
           //dump($data['mem_type']);die();
         $data['mem_num']='Y'.time();
     		$data['addtime']=time();
-    	//	dump($data);die();
+    	dump($data);die();
     		//dump($_FILES);die();
     		if($_FILES['mem_pic']['tmp_name']){
     		           $data['mem_pic']=$this->upload();

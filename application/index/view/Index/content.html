@@ -1,0 +1,41 @@
+
+<!doctype html>
+<html  lang="zh-CN" prefix="og: http://ogp.me/ns#">
+<head>
+    <title>360 Total Security 博客</title>
+   {include file="Common/header"/}
+
+<!-- 导航栏结束 -->
+
+
+
+<div class="body">
+<div class="wrapper cls">
+    <div class="main">
+
+        <div class="list">
+          <ul>
+            <li>
+	          	<h1 class="title"><a href="#" >{$content.st_name}</a></h1>
+				<div class="info"><span>{$content.st_addtime|date="Y-m-d",###}</span></div>
+				<!-- 文章内容 -->
+
+
+        <?php echo htmlspecialchars_decode($content['st_desc']);?>
+        <!-- 文章内容 -->
+				
+          	</li>
+                 
+          </ul>
+        </div>
+  
+
+    </div>
+
+
+{include file="Common/right"/}
+{include file="Common/footer"/}
+
+    
+
+

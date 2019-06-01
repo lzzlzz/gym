@@ -1,22 +1,22 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
-class Index extends Base
+class Bulletin extends Base
 {
-    public function state()
+    public function index()
     {
-    	$state=db('state')->paginate(2);
+    	$bulletin=db('bulletin')->paginate(2);
     	
     	$this->assign([
-    		'state'=>$state,
+    		'bulletin'=>$bulletin,
     		
     	]);
-    	//dump($state);die();
+    	//dump($index);die();
         return view();
     }
 
     public function content($id){
-        $content=db('state')->find($id);
+        $content=db('bulletin')->find($id);
         $this->assign([
             'content'=>$content,
         ]);
